@@ -1,0 +1,21 @@
+# Route all requests through the PHP router (public/index.php) so that
+# /about, /contact, /search etc. work. Static files (images, CSS, JS) are
+# served directly when they exist in the project root.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Home page: send "/" to the router (otherwise Apache serves the root directory)
+    RewriteRule ^$ public/index.php [QSA,L]
+
+    # If the request is for a real file or directory, serve it
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Otherwise send everything to the router
+    RewriteRule ^(.*)$ public/index.php [QSA,L]
+</IfModule>
+
+# Optional: prevent directory listing
+Options -Indexes
