@@ -4,3 +4,4 @@
  * We simply run the real router so the home page and all routes work.
  */
 require __DIR__ . '/public/index.php';
+
