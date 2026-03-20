@@ -1,70 +1,87 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-$isWP = false;
-if (file_exists("../../../../../wp-load.php")) {
-    include("../../../../../wp-load.php");
-    $isWP = true;
-}
+// Include PHPMailer files
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
-$emailTo       = '<fede@Schiocco.it>';
-$sender_email = 'contacts@framework-y.com';
-$subject = 'You received a new message';
+// --- CONFIGURATION ---
+$sender_email  = 'no-reply@kimi-trockenbau-innenausbau.de'; // domain email created in cPanel
+$sender_pass   = 'ndlM}%)y5ucZ%kRd';                      // password of above email
+$receiver_email= 'popov_vancho@yahoo.com';                  // where messages will be sent
+$domain        = 'kimi-trockenbau-innenausbau.de';          // your domain
 
-$errors = array();
-$data   = array();
-$body    = '';
-$email = '';
-$name = '';
-$domain = '';
-if (isset($_POST['email'])) $domain = $_POST['domain'];
+// Initialize response
+$data   = [];
+$errors = [];
+$body   = '';
+$email  = '';
+$name   = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $arr = $_POST['values'];
-    $sender_email = 'contacts@' . $domain;
-    $email = 'no-replay@' . $domain;
 
-    if (isset($_POST['email']) && strlen($_POST['email']) > 0)  $emailTo = $_POST['email'];
-    if (isset($_POST['subject_email']) && strlen($_POST['subject_email']) > 0) $subject = $_POST['subject_email'];
-    else $subject = '[' . $domain . '] New message';
+    $arr = $_POST['values'] ?? [];
 
-    foreach ($arr as $key => $value ) {
-        $val =  stripslashes(trim($value[0]));
+    // Optional: override receiver and subject from form
+    $subject = $_POST['subject_email'] ?? '['.$domain.'] New message';
+    $emailTo = $_POST['email'] ?? $receiver_email;
+
+    // Build message body
+    foreach ($arr as $key => $value) {
+        $val = is_array($value) ? trim($value[0]) : trim($value);
+        $val = stripslashes($val);
+
         if (!empty($val)) {
             $body .= ucfirst($key) . ': ' . $val . PHP_EOL . PHP_EOL;
-            if ($key == "email"||$key == "Email"||$key == "E-mail"||$key == "e-mail") $email = $val;
-            if ($key == "name"||$key == "nome"||$key == "Nome") $name = $val;
+
+            if (in_array(strtolower($key), ['email', 'e-mail'])) $email = $val;
+            if (in_array(strtolower($key), ['name', 'nome'])) $name = $val;
         }
     }
-    $body .= "-------------------------------------------------------------------------------------------" . PHP_EOL . PHP_EOL;
-    $body .= "New messagge from " . $domain;
+
+    // Validate email
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Invalid email address';
+
+    $body .= str_repeat('-', 80) . PHP_EOL;
+    $body .= "New message from " . $domain;
     if ($name == '') $name = $subject;
 
     if (!empty($errors)) {
         $data['success'] = false;
         $data['errors']  = $errors;
     } else {
-        $headers  = "From: " . $sender_email . "\r\n";
-        $headers .= "Reply-To: " . $email . "\r\n";
+        $mail = new PHPMailer(true);
+        try {
+            // SMTP configuration
+            $mail->isSMTP();
+            $mail->Host       = 'mail.kimi-trockenbau-innenausbau.de'; // cPanel mail server
+            $mail->SMTPAuth   = true;
+            $mail->Username   = $sender_email;
+            $mail->Password   = $sender_pass;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+            $mail->SMTPDebug = 2;       // shows connection and auth details
+            $mail->Debugoutput = 'html'; // prints debug info in HTML
 
-        $result;
-        if ($isWP) {
-            try {
-                $result = wp_mail($emailTo, $subject, $body, $headers);
-            }
-            catch (Exception $exception) {
-                $result = mail($emailTo, $subject, $body, $headers);
-            }
-        } else {
-            $result = mail($emailTo, $subject, $body, $headers);
-        }
+            // Email headers and content
+            $mail->setFrom($sender_email, $domain);
+            $mail->addAddress($emailTo);
+            $mail->addReplyTo($email, $name); // reply goes to form sender
 
-        if ($result) {
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+
+            $mail->send();
             $data['success'] = true;
-            $data['message'] = 'Congratulations. Your message has been sent successfully.';
-        } else {
+            $data['message'] = 'Message sent successfully via SMTP.';
+        } catch (Exception $e) {
             $data['success'] = false;
-            $data['message'] = 'Error. Messagge not sent.';
+            $data['message'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
-    // return all our data to an AJAX call
+
     echo json_encode($data);
 }

@@ -241,11 +241,15 @@ return [
     'Professional tiling for floors, walls and wet areas. Precision laying and waterproofing.' => 'Professionelle Renovierung und Sanierung für Böden, Wände und Nassbereiche. Präzise Ausführung und Abdichtung.',
     'Full renovation: painting, flooring, bathrooms and interior finishing. Renew and upgrade your space.' => 'Komplettrenovierung: Malerarbeiten, Bodenbeläge, Bäder und Innenausbau. Erneuern und verbessern Sie Ihre Räume.',
     'Contact' => 'Kontakt',
-    'Phone: +49 176 40486454 · Musterstrasse 123, 51371 Leverkusen' => 'Telefon: +49 176 40486454 · Musterstrasse 123, 51371 Leverkusen',
     'Our philosophy' => 'Unsere Philosophie',
     'Quality in drywall, interior construction tiles and renovation. We work with precision and care for every project.' => 'Qualität in Trockenbau, Innenausbau, Renovierung und Sanierung. Wir arbeiten mit Präzision und Sorgfalt an jedem Projekt.',
-    'We are your partner for drywall, interior construction tiles and renovation in Leverkusen and the region. Our services include drywall installation and finishing, professional tiling for floors and walls, bathroom and kitchen renovations, and full interior and exterior finishing. We combine experience with modern techniques to deliver lasting results. Contact us at +49 176 40486454 or visit us at Musterstrasse 123, 51371 Leverkusen.' => 'Wir sind Ihr Partner für Trockenbau, Innenausbau, Renovierung und Sanierung in Leverkusen und der Region. Unsere Leistungen umfassen Trockenbau, professionelle Renovierung und Sanierung für Böden und Wände, Badezimmer- und Küchenrenovierungen sowie kompletten Innen- und Außenausbau. Wir verbinden Erfahrung mit modernen Techniken für dauerhafte Ergebnisse. Kontakt: +49 176 40486454 oder Musterstrasse 123, 51371 Leverkusen.',
-
+    'We are your partner for drywall, interior construction tiles and renovation in Leverkusen and the region.' => 'Wir sind Ihr Partner für Trockenbau, Innenausbau, Renovierung und Sanierung in Leverkusen und der Region.',
+    'Our services include drywall installation and finishing, professional tiling for floors and walls, bathroom and kitchen renovations, and full interior and exterior finishing.' => 'Unsere Leistungen umfassen Trockenbau, professionelle Renovierung und Sanierung für Böden und Wände, Badezimmer- und Küchenrenovierungen sowie kompletten Innen- und Außenausbau.',
+    'We combine experience with modern techniques to deliver lasting results.' => 'Wir verbinden Erfahrung mit modernen Techniken für dauerhafte Ergebnisse.',
+    'Contact us at' => 'Kontakt',
+    'or visit us at' => 'oder',
+    'Adddress' => 'Adresse',
+    'Phone' => 'Phone',
     // Home page – slider & services
     'Built with precision, designed to last' => 'Mit Präzision gebaut, für die Dauer konzipiert',
     'Our work is defined by precision. Perfectly straight lines, even spacing, and smooth finishes are not details — they are our standard. Using modern tools and proven construction methods, we ensure effective installation that resists moisture, wear, and time.' => 'Unsere Arbeit zeichnet sich durch Präzision aus. Gerade Linien, gleichmäßige Fugen und glatte Oberflächen sind für uns Standard. Mit modernen Werkzeugen und bewährten Baumethoden sorgen wir für eine fachgerechte Ausführung, die Feuchtigkeit, Abnutzung und der Zeit standhält.',

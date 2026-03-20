@@ -175,7 +175,12 @@ require_once __DIR__ . '/../includes/head.php';
                             <div class="row">
                                 <div class="col-md-9">
                                     <h3><?php echo htmlspecialchars(tr('Contact')); ?></h3>
-                                    <p><?php echo htmlspecialchars(tr('Phone: +49 176 40486454 · Musterstrasse 123, 51371 Leverkusen')); ?></p>
+                                    <p>
+                                        <?php echo tr('Phone') . ':' . $contact_phone; ?>
+                                    </p>
+                                    <p>
+                                        <?php echo tr('Adddress') .':'. $contact_address; ?>
+                                    </p>
                                 </div>
                                 <div class="col-md-3">
                                     <span></span>
@@ -198,7 +203,10 @@ require_once __DIR__ . '/../includes/head.php';
                 </div>
                 <div class="col-md-8 boxed boxed-border white">
                     <p>
-                        <?php echo htmlspecialchars(tr('We are your partner for drywall, interior construction tiles and renovation in Leverkusen and the region. Our services include drywall installation and finishing, professional tiling for floors and walls, bathroom and kitchen renovations, and full interior and exterior finishing. We combine experience with modern techniques to deliver lasting results. Contact us at +49 176 40486454 or visit us at Musterstrasse 123, 51371 Leverkusen.')); ?>
+                        <?php echo htmlspecialchars(tr('We are your partner for drywall, interior construction tiles and renovation in Leverkusen and the region.')) ?>
+                        <?php echo htmlspecialchars(tr('Our services include drywall installation and finishing, professional tiling for floors and walls, bathroom and kitchen renovations, and full interior and exterior finishing.')) ?>
+                        <?php echo htmlspecialchars(tr('We combine experience with modern techniques to deliver lasting results.')) ?>
+                        <?php echo htmlspecialchars(tr('Contact us at')) . ': ' .  $contact_phone .', ' . $contact_address; ?>
                     </p>
                 </div>
             </div>

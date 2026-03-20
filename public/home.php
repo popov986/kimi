@@ -43,10 +43,10 @@ require_once __DIR__ . '/../includes/head.php';
     <?php require_once __DIR__ . '/../includes/header.php'; ?>
 
     <div class="section-empty no-paddings">
-        <div class="section-slider row-18 white">
-            <div class="flexslider advanced-slider slider visible-dir-nav" data-options="animation:fade">
+        <div class="section-slider row-20 white">
+            <div class="flexslider advanced-slider slider visible-dir-nav" data-options="animation:fade,slideshowSpeed:3000,animationSpeed:1000">
                 <ul class="slides">
-                    <li class="slide-image-right" data-slider-anima="fade-left" data-time="1000">
+                    <li class="slide-image-right" data-slider-anima="fade-left" data-time="400">
                         <div class="section-slide">
                             <div class="bg-cover" style="background-image:url('<?= $base ?>images/gallery/<?= rawurlencode('project 5') ?>/project5_5.jpg')">
                             </div>
@@ -57,10 +57,10 @@ require_once __DIR__ . '/../includes/head.php';
                                         <div class="row">
                                             <div class="col-md-6 anima">
                                                 <h1 class="text-l text-normal text-m-xs"><?= tr('Ki-Mi Drywall / Interior Construction') ?></h1>
-                                                <p class="text-s-xs">
+                                                <p class="text-s-xs hidden-xs">
                                                     <?= tr('Renovations, Refurbishments & Interior Construction in Leverkusen and Surroundings.') ?>
                                                 </p>
-                                                <ul class="text-s-xs list">
+                                                <ul class="text-s-xs list hidden-xs">
                                                     <li><?= tr('Drywall Construction') ?></li>
                                                     <li><?= tr('Plaster Work') ?></li>
                                                     <li><?= tr('Finishing Work (Q1–Q4)') ?></li>
@@ -70,7 +70,7 @@ require_once __DIR__ . '/../includes/head.php';
                                                     <li><?= tr('Tile Repairs / Renovations and much more') ?></li>
                                                 </ul>
                                                 <br>
-                                                <button class="btn btn-lg btn-slider-cta" type="button"><i class="fa fa-phone"></i>+49 176 40486454</button>
+                                                <button class="btn btn-lg btn-slider-cta" type="button"><i class="fa fa-phone"></i><?= $contact_phone; ?></button>
                                             </div>
                                             <div class="col-md-6">
                                             </div>
@@ -81,9 +81,10 @@ require_once __DIR__ . '/../includes/head.php';
                             </div>
                         </div>
                     </li>
-                    <li class="slide-image-right" data-slider-anima="fade-left" data-time="1000">
+
+                    <li class="slide-image-right" data-slider-anima="fade-left" data-time="400">
                         <div class="section-slide">
-                            <div class="bg-cover" style="background-image:url('<?= $base ?>images/<?= 'gallery' ?>/main.jpg')">
+                            <div class="bg-cover" style="background-image:url('<?= $base ?>images/gallery/main.jpg')">
                             </div>
                             <div class="container">
                                 <div class="container-middle">
@@ -92,9 +93,11 @@ require_once __DIR__ . '/../includes/head.php';
                                         <div class="row">
                                             <div class="col-md-6 anima">
                                                 <h1 class="text-l text-normal text-m-xs"><?= tr('Built with precision, designed to last') ?></h1>
-                                                <p class="text-s-xs">
+                                                <p class="text-s-xs hidden-xs">
                                                     <?= tr('Our work is defined by precision. Perfectly straight lines, even spacing, and smooth finishes are not details — they are our standard. Using modern tools and proven construction methods, we ensure effective installation that resists moisture, wear, and time.') ?>
                                                 </p>
+                                                <br>
+                                                <button class="btn btn-lg btn-slider-cta" type="button"><i class="fa fa-phone"></i><?= $contact_phone; ?></button>
                                             </div>
                                             <div class="col-md-6">
                                             </div>
@@ -105,9 +108,10 @@ require_once __DIR__ . '/../includes/head.php';
                             </div>
                         </div>
                     </li>
-                    <li class="slide-image-right" data-slider-anima="fade-left" data-time="1000">
+
+                    <li class="slide-image-right" data-slider-anima="fade-left" data-time="400">
                         <div class="section-slide">
-                            <div class="bg-cover" style="background-image:url('<?= $base ?>images/gallery/<?= rawurlencode('project 5') ?>/project5_9.jpg')">
+                            <div class="bg-cover" style="background-image:url('<?= $base ?>images/gallery/<?= rawurlencode('project 5') ?>/project5_1.jpg')">
                             </div>
                             <div class="container">
                                 <div class="container-middle">
@@ -116,9 +120,11 @@ require_once __DIR__ . '/../includes/head.php';
                                         <div class="row">
                                             <div class="col-md-6 anima">
                                                 <h1 class="text-l text-normal text-m-xs"><?= tr('Built for style and strength') ?></h1>
-                                                <p class="text-s-xs">
+                                                <p class="text-s-xs hidden-xs">
                                                     <?= tr('Great tile work transforms a space instantly. We provide professional tiles construction that blends modern design with solid engineering. Every tile is placed with care, accuracy, and technical precision to create surfaces that are smooth, durable, and visually striking.') ?>
                                                 </p>
+                                                <br>
+                                                <button class="btn btn-lg btn-slider-cta" type="button"><i class="fa fa-phone"></i><?= $contact_phone; ?></button>
                                             </div>
                                             <div class="col-md-6">
                                             </div>
@@ -129,6 +135,7 @@ require_once __DIR__ . '/../includes/head.php';
                             </div>
                         </div>
                     </li>
+
                 </ul>
             </div>
         </div>

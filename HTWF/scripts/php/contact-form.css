@@ -261,6 +261,20 @@ CONTACT FORM
     display: none;
 }
 
+/* Contact message textarea: make it look like a dedicated block */
+.form-box input.form-value,
+.form-box textarea.form-value,
+.form-box select.form-value {
+    border: 1px solid gray !important;
+    border-radius: 4px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+}
+
+.form-box textarea.contact-message {
+    min-height: 90px; /* roughly >= 4 rows */
+}
+
 /*
 ==============================
 MOBILE - RESPONSIVE
