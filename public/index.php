@@ -58,6 +58,22 @@ if (!defined('BASE_PATH')) {
 
 $baseDir = __DIR__ . DIRECTORY_SEPARATOR;
 
+// robots.txt (project root)
+if ($uri === 'robots.txt') {
+    $robotsFile = $projectRoot . 'robots.txt';
+    if (is_file($robotsFile)) {
+        header('Content-Type: text/plain; charset=utf-8');
+        readfile($robotsFile);
+        return true;
+    }
+}
+
+// XML sitemap
+if ($uri === 'sitemap.xml' && is_file($baseDir . 'sitemap.php')) {
+    require $baseDir . 'sitemap.php';
+    return true;
+}
+
 // Domain landing page: / or /index -> home.php
 if ($uri === '' || $uri === 'index') {
     $homeFile = $baseDir . 'home.php';
@@ -67,7 +83,7 @@ if ($uri === '' || $uri === 'index') {
     }
 }
 
-$allowed = ['about', 'contact', 'portfolio', 'galery', 'search', 'contact-form'];
+$allowed = ['about', 'contact', 'portfolio', 'galery', 'search', 'contact-form', 'admin'];
 if (in_array($uri, $allowed, true) && is_file($baseDir . $uri . '.php')) {
     require $baseDir . $uri . '.php';
     return true;

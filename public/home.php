@@ -1,9 +1,10 @@
 <?php
 $nav_active = 'home';
 require_once __DIR__ . '/../includes/config.php';
-$page_title = tr('Ki Mi Innenausbau');
-$page_description = tr('Multipurpose HTML template.');
+$page_title = tr('Ki Mi Innenausbau Leverkusen | Trockenbau, Renovierung & Sanierung');
+$page_description = tr('Ki-Mi drywall and interior finishing in Leverkusen: renovation, drywall, bathroom renovation, tiling, gallery and references.');
 $base = BASE_PATH;
+$seo_jsonld_localbusiness = true;
 require_once __DIR__ . '/../includes/gallery_data.php';
 
 // Per-project gallery lightbox: one gallery per project (next/prev stay in same project)
@@ -251,6 +252,9 @@ require_once __DIR__ . '/../includes/head.php';
                                     <img src="<?= $base ?>images/gallery/<?= $folder_enc ?>/<?= htmlspecialchars($first) ?>" alt="<?= htmlspecialchars($title) ?>" />
                                 </a>
                                 <?php foreach ($files as $file): ?>
+                                <?php if ($file === $first) {
+                                    continue;
+                                } ?>
                                 <a class="project-lightbox sr-only" href="<?= $base ?>images/gallery/<?= $folder_enc ?>/<?= htmlspecialchars($file) ?>" aria-hidden="true"></a>
                                 <?php endforeach; ?>
                             </div>

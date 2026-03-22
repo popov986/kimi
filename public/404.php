@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/config.php';
 $page_title = tr('404 - Page not found');
 $page_description = tr('The page you were looking for could not be found.');
 $base = BASE_PATH;
+$seo_noindex = true;
 
 require_once __DIR__ . '/../includes/head.php';
 ?>

@@ -44,8 +44,8 @@ if ($lang_path === null || $lang_path === '') {
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img class="logo-default" src="<?php echo $base; ?>images/<?php echo rawurlencode('gallery'); ?>/logo.png" alt="logo" />
-                            <img class="logo-retina" src="<?php echo $base; ?>images/<?php echo rawurlencode('gallery'); ?>/logo.png" alt="logo" />
+                            <img class="logo-default" src="<?php echo $base; ?>images/<?php echo rawurlencode('gallery'); ?>/logo.png" alt="<?php echo htmlspecialchars(tr('Logo Ki Mi Innenausbau Trockenbau Leverkusen')); ?>" />
+                            <img class="logo-retina" src="<?php echo $base; ?>images/<?php echo rawurlencode('gallery'); ?>/logo.png" alt="<?php echo htmlspecialchars(tr('Logo Ki Mi Innenausbau Trockenbau Leverkusen')); ?>" />
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">

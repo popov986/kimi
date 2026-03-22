@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/config.php';
 
 $search_query = isset($_GET['q']) ? trim((string) $_GET['q']) : '';
 $page_title = $search_query !== '' ? tr('Search for...') . ' "' . htmlspecialchars($search_query) . '"' : tr('Search');
-$page_description = tr('Search for...');
+$page_description = tr('Search Ki Mi Innenausbau website for renovation, drywall, contact and services.');
 $base = BASE_PATH;
 
 // Searchable pages: url, title (key for tr), description (key for tr)

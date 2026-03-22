@@ -2,8 +2,8 @@
 $nav_active = 'galery';
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/gallery_data.php';
-$page_title = tr('Gallery');
-$page_description = tr('Multipurpose HTML template.');
+$page_title = tr('Gallery | Ki Mi Innenausbau Leverkusen');
+$page_description = tr('Gallery: photos of renovation, drywall, tiling and interior projects in Leverkusen.');
 $base = BASE_PATH;
 
 // Project-gallery lightbox: one gallery per project (next/prev stay in same project)
@@ -300,6 +300,9 @@ require_once __DIR__ . '/../includes/head.php';
                                                 <img src="<?= $base ?>images/gallery/<?= $folder_enc ?>/<?= htmlspecialchars($first) ?>" alt="<?= htmlspecialchars($title) ?>" />
                                             </a>
                                             <?php foreach ($files as $file): ?>
+                                                <?php if ($file === $first) {
+                                                    continue;
+                                                } ?>
                                                 <a class="project-lightbox sr-only" href="<?= $base ?>images/gallery/<?= $folder_enc ?>/<?= htmlspecialchars($file) ?>" aria-hidden="true"></a>
                                             <?php endforeach; ?>
                                         </div>

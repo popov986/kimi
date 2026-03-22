@@ -171,6 +171,71 @@ $gallery_projects_by_folder = [
     ],
 ];
 
+// -----------------------------
+// Admin-managed gallery ordering (includes/gallery_order.json)
+// -----------------------------
+$galleryOrderPath = __DIR__ . '/gallery_order.json';
+if (is_file($galleryOrderPath)) {
+    $raw = file_get_contents($galleryOrderPath);
+    $order = json_decode((string)$raw, true);
+    if (is_array($order)) {
+        if (!empty($order['projects']) && is_array($order['projects'])) {
+            $new = [];
+            foreach ($order['projects'] as $folder) {
+                $folder = (string)$folder;
+                if (isset($gallery_projects_by_folder[$folder])) {
+                    $new[$folder] = $gallery_projects_by_folder[$folder];
+                }
+            }
+            foreach ($gallery_projects_by_folder as $folder => $data) {
+                if (!isset($new[$folder])) {
+                    $new[$folder] = $data;
+                }
+            }
+            $gallery_projects_by_folder = $new;
+        }
+
+        if (!empty($order['files']) && is_array($order['files'])) {
+            foreach ($order['files'] as $projectFolder => $fileList) {
+                $projectFolder = (string)$projectFolder;
+                if (!isset($gallery_projects_by_folder[$projectFolder])) {
+                    continue;
+                }
+                if (empty($gallery_projects_by_folder[$projectFolder]['files']) || !is_array($gallery_projects_by_folder[$projectFolder]['files'])) {
+                    continue;
+                }
+
+                $existingFiles = $gallery_projects_by_folder[$projectFolder]['files'];
+                if (!is_array($existingFiles)) {
+                    $existingFiles = [];
+                }
+
+                if (!is_array($fileList)) {
+                    continue;
+                }
+
+                $ordered = [];
+                foreach ($fileList as $f) {
+                    $f = (string)$f;
+                    if (in_array($f, $existingFiles, true)) {
+                        $ordered[] = $f;
+                    }
+                }
+                foreach ($existingFiles as $f) {
+                    if (!in_array($f, $ordered, true)) {
+                        $ordered[] = $f;
+                    }
+                }
+
+                if (!empty($ordered)) {
+                    $gallery_projects_by_folder[$projectFolder]['files'] = $ordered;
+                    $gallery_projects_by_folder[$projectFolder]['front_image'] = $ordered[0];
+                }
+            }
+        }
+    }
+}
+
 // Sort by project number: 1, 2, 3, ... 16
 //uksort($gallery_projects_by_folder, function ($a, $b) {
 //    return (int) preg_replace('/\D/', '', $a) - (int) preg_replace('/\D/', '', $b);

@@ -6,6 +6,11 @@
 
 require_once __DIR__ . '/lang.php';
 
+/** Canonical site URL (no trailing slash) — used for SEO, sitemap, Open Graph */
+if (!defined('SITE_CANONICAL_URL')) {
+    define('SITE_CANONICAL_URL', 'https://kimi-trockenbau-innenausbau.de');
+}
+
 // Base path for CSS, JS, images (relative to the current page)
 // When PHP files are in /pages/, use '../'. When in root, use '' or './'
 if (!defined('BASE_PATH')) {

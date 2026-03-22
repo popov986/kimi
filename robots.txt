@@ -1,0 +1,8 @@
+# https://kimi-trockenbau-innenausbau.de/
+User-agent: *
+Allow: /
+
+# Admin area (no indexing)
+Disallow: /admin
+
+Sitemap: https://kimi-trockenbau-innenausbau.de/sitemap.xml

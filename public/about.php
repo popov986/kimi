@@ -1,8 +1,8 @@
 <?php
 $nav_active = 'about';
 require_once __DIR__ . '/../includes/config.php';
-$page_title = tr('About Us');
-$page_description = tr('Multipurpose HTML template.');
+$page_title = tr('About Us | Ki Mi Innenausbau Leverkusen');
+$page_description = tr('About Ki-Mi Innenausbau in Leverkusen: team, experience in renovation, drywall and interior finishing.');
 $base = BASE_PATH;
 
 require_once __DIR__ . '/../includes/head.php';

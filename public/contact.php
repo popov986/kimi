@@ -1,7 +1,7 @@
 <?php
 $nav_active = 'contact';
 require_once __DIR__ . '/../includes/config.php';
-$page_title = tr('Contact Us');
+$page_title = tr('Contact | Ki Mi Innenausbau Leverkusen');
 $page_description = tr('Contact us – drywall, interior construction tiles and renovation.');
 $base = BASE_PATH;
 

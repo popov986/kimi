@@ -1,8 +1,8 @@
 <?php
 $nav_active = 'portfolio';
 require_once __DIR__ . '/../includes/config.php';
-$page_title = tr('Portfolio');
-$page_description = tr('Multipurpose HTML template.');
+$page_title = tr('Portfolio | Ki Mi Innenausbau Leverkusen');
+$page_description = tr('Portfolio: completed projects – renovation, drywall, bathroom and interior work in Leverkusen and region.');
 $base = BASE_PATH;
 
 require_once __DIR__ . '/../includes/head.php';

@@ -329,4 +329,17 @@ return [
     'View All Projects' => 'Alle Projekte ansehen',
     'Our latest Projects' => 'Unsere neuesten Projekte',
 
+    // SEO meta (titles & descriptions)
+    'Ki Mi Innenausbau Leverkusen | Trockenbau, Renovierung & Sanierung' => 'Ki Mi Innenausbau Leverkusen | Trockenbau, Renovierung & Sanierung',
+    'Ki-Mi drywall and interior finishing in Leverkusen: renovation, drywall, bathroom renovation, tiling, gallery and references.' => 'Ki-Mi Trockenbau & Innenausbau in Leverkusen: Renovierung, Sanierung, Trockenbau, Badsanierung, Fliesen, Galerie und Referenzen.',
+    'About Ki-Mi Innenausbau in Leverkusen: team, experience in renovation, drywall and interior finishing.' => 'Über Ki-Mi Innenausbau in Leverkusen: Team und Erfahrung in Renovierung, Trockenbau und Innenausbau.',
+    'Portfolio: completed projects – renovation, drywall, bathroom and interior work in Leverkusen and region.' => 'Portfolio: abgeschlossene Projekte – Renovierung, Trockenbau, Bad und Innenausbau in Leverkusen und Umgebung.',
+    'Gallery: photos of renovation, drywall, tiling and interior projects in Leverkusen.' => 'Galerie: Fotos von Renovierung, Trockenbau, Fliesen und Innenausbau in Leverkusen.',
+    'About Us | Ki Mi Innenausbau Leverkusen' => 'Über uns | Ki Mi Innenausbau Leverkusen',
+    'Portfolio | Ki Mi Innenausbau Leverkusen' => 'Portfolio | Ki Mi Innenausbau Leverkusen',
+    'Gallery | Ki Mi Innenausbau Leverkusen' => 'Galerie | Ki Mi Innenausbau Leverkusen',
+    'Contact | Ki Mi Innenausbau Leverkusen' => 'Kontakt | Ki Mi Innenausbau Leverkusen',
+    'Logo Ki Mi Innenausbau Trockenbau Leverkusen' => 'Logo Ki Mi Innenausbau – Trockenbau & Innenausbau Leverkusen',
+    'Search Ki Mi Innenausbau website for renovation, drywall, contact and services.' => 'Suche auf der Website Ki Mi Innenausbau nach Renovierung, Trockenbau, Kontakt und Leistungen.',
+
 ];
